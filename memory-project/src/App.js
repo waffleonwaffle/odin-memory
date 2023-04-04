@@ -2,9 +2,9 @@ import './App.css';
 import GameScreen from './components/GameScreen/GameScreen'
 const App = () => {
   return (
-    <div className="App">
-      <GameScreen/>
-    </div>
+    <section className="App">
+      <GameScreen />
+    </section>
   );
 }
 
