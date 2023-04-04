@@ -2,7 +2,7 @@ import Scoreboard from './Scoreboard'
 import CardGrid from './CardComponents/CardGrid'
 import Header from './Header'
 import { useState } from 'react'
-const GameScreen = () => {
+const GameScreen = ({selectedMode}) => {
 
     const [score, setScore] = useState(0)
     const [bestScore, setBestScore] = useState(0)
@@ -22,7 +22,7 @@ const GameScreen = () => {
         <section className='GameScreen'>
             <Header />
             <Scoreboard score={score} bestScore={bestScore}/>
-            <CardGrid incrementCurrentScore={incrementCurrentScore} handleBestScore={handleBestScore}/>
+            <CardGrid incrementCurrentScore={incrementCurrentScore} handleBestScore={handleBestScore} selectedMode={selectedMode}/>
         </section>
     )
 }

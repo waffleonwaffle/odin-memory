@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Card from './Card'
 import r6operators from "r6operators"
 const initialOperatorArray = Object.entries(r6operators);
-const CardGrid = ({incrementCurrentScore, handleBestScore}) => {
+const CardGrid = ({ incrementCurrentScore, handleBestScore, selectedMode}) => {
     const [clickedCards, setClickedCards] = useState([]);
     const shuffleGrid = () => {
         const shuffledArray = [...initialOperatorArray];
@@ -14,18 +14,18 @@ const CardGrid = ({incrementCurrentScore, handleBestScore}) => {
     };
 
     const renderCardGrid = () => {
-        return shuffleGrid().filter(([, operator]) => operator.role === "Attacker").map(([, operator]) => {
+        // eslint-disable-next-line array-callback-return
+        return shuffleGrid().filter(([, operator]) => operator.role === selectedMode).map(([, operator]) => {
             const operatorSVG = operator.toSVG()
-            if (operator.role === 'Attacker') {
-                return (
-                    <Card operator={operatorSVG} operatorName={operator.name} handleCardClick={() => handleCardClick(operator.id)}/>
-                )
-            }
+            return (
+                <Card operator={operatorSVG} operatorName={operator.name} handleCardClick={() => handleCardClick(operator.id)} />
+            )
+
         })
     }
 
     const handleCardClick = (operatorID) => {
-        if(!clickedCards.includes(operatorID)) {
+        if (!clickedCards.includes(operatorID)) {
             setClickedCards([...clickedCards, operatorID])
             incrementCurrentScore()
         } else {
