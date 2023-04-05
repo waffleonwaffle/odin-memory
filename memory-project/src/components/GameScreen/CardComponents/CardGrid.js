@@ -15,17 +15,22 @@ const CardGrid = ({ incrementCurrentScore, handleBestScore, selectedMode}) => {
 
     const renderCardGrid = () => {
         // eslint-disable-next-line array-callback-return
+        let maxCards = 0
         return shuffleGrid().filter(([, operator]) => operator.role === selectedMode).map(([, operator]) => {
             const operatorSVG = operator.toSVG()
+            maxCards += 1
             return (
-                <Card operator={operatorSVG} operatorName={operator.name} handleCardClick={() => handleCardClick(operator.id)} />
+                <Card operator={operatorSVG} operatorName={operator.name} handleCardClick={() => handleCardClick(operator.id, maxCards)} />
             )
 
         })
     }
 
-    const handleCardClick = (operatorID) => {
-        if (!clickedCards.includes(operatorID)) {
+    const handleCardClick = (operatorID, maxCards) => {
+        if(clickedCards.length === maxCards) {
+            setClickedCards([])
+            incrementCurrentScore()
+        } else if (!clickedCards.includes(operatorID)) {
             setClickedCards([...clickedCards, operatorID])
             incrementCurrentScore()
         } else {

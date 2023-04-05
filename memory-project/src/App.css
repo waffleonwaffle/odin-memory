@@ -100,8 +100,6 @@ ul {
 
 }
 
-
-
 .card-grid {
   display: grid;
   grid-template-columns: repeat(11, 1fr);
@@ -109,12 +107,17 @@ ul {
   width: 1500px;
   height: 750px;
   background-color: aliceblue;
+  margin-bottom: 40px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
 }
+
+/* .card:hover {
+  background-color: red;
+} */
 
 .operator-name {
   font-family: GeneralFont;
