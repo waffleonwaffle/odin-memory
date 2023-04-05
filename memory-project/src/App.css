@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgb(100, 32, 32);
+
 }
 
 .App {
@@ -14,13 +15,14 @@ body {
 .Screens {
   height: 100%;
   width: 100%;
-  background-image: url('/Users/anavm1/Downloads/Rainbow Six Siege.svg');
+  background-image: url('./components/StartScreen/Rainbow\ Six\ Siege.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+
 }
 
 .GameScreen {
@@ -88,10 +90,15 @@ ul {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 11rem;
-  background-color: orange;
+  height: 8rem;
+  background-color: rgb(193,106,27);
   font-size: 5rem;
   font-family: TitleFont;
+}
+
+.title > svg {
+  height: 100px;
+  width: 100px;
 }
 
 .scoreboard {
@@ -105,8 +112,7 @@ ul {
   grid-template-columns: repeat(11, 1fr);
   grid-template-rows: repeat(3, 1fr);
   width: 1500px;
-  height: 750px;
-  /* background-color: aliceblue; */
+  height: 700px;
   margin-bottom: 40px;
 }
 
