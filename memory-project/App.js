@@ -1,5 +1,4 @@
-import './styles/App.css';
-import './styles/OperatorCards.css'
+import './App.css';
 import GameScreen from './components/GameScreen/GameScreen'
 import StartScreen from './components/StartScreen/StartScreen'
 import { useState } from "react";
